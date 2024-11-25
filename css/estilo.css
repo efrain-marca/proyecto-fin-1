@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    margin: 70px;
+    margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(145deg, #FFFA5F, #100F3F, #C60E16, #FDA912, #955121);
     color: white;
@@ -9,7 +9,11 @@ body {
 /* Container */
 .container {
     display: flex;
-    height: 90vh;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en nuevas filas si es necesario */
+    height: auto;
+    padding: 0 15px;
+    gap: 20px;
+    justify-content: space-between; /* Asegura que haya espacio entre los elementos */
 }
 
 /* Sidebar */
@@ -18,7 +22,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: #ddd;
-    width: 250px;
+    width: 100%;
+    max-width: 250px; /* Limita el ancho máximo en pantallas grandes */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -26,12 +31,13 @@ body {
     border-radius: 10px 0 0 10px;
 }
 
-
+/* Sidebar logo */
 .sidebar .logo {
     font-size: 24px;
     font-weight: bold;
 }
 
+/* Sidebar Menu */
 .menu h2 {
     font-size: 25px;
     background-color: black;
@@ -57,13 +63,14 @@ body {
     padding: 45px;
     display: flex;
     flex-direction: column;
-    width: 100px;
     background-image: url('../im/2222.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 0 10px 10px 0;
     gap: 20px;
 }
+
+/* Buttons */
 .btn {
     background-color: #e7df8b;
     color: black;
@@ -78,6 +85,7 @@ body {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6); 
 }
 
+/* Text Inputs */
 .txt {
     background-color:  #eeefd4;
     color: black;
@@ -92,10 +100,12 @@ body {
     background-color:  #4C1510; 
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6); 
 }
+
 /* Video List */
 .video-list {
     max-height: 300px;
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     overflow-y: auto;
     border: 1px solid #0c0c0c;
     border-radius: 10px;
@@ -103,6 +113,7 @@ body {
     background-image: url('../im/333.avif');
 }
 
+/* Video Cards */
 .video-card {
     display: flex;
     align-items: center;
@@ -137,10 +148,6 @@ body {
 .video-card button:hover {
     background-color: #d40812;
 }
-.vdd{
-
-    align-items: center;
-}
 
 /* Footer Player */
 footer.player {
@@ -148,11 +155,11 @@ footer.player {
     padding: 20px;
     background-color: #0a1b33;
     margin-top: -10px;
-    max-width: -20px;
     color: white;
     position: fixed;
     bottom: 0;
-    width: 70%;
+    width: 100%;
+    max-width: 70%;
     border-radius: 8px;
 }
 
@@ -179,14 +186,54 @@ footer.player button {
 footer.player button:hover {
     background: #444;
 }
-.add-to-playlist-btn{
-    background: #150ab8;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 5px 5px 10px black; 
-    transition: all 0.5s; 
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .sidebar {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+    .main-content {
+        width: 100%;
+        padding: 20px;
+    }
 }
-.add-to-playlist-btn:hover{
-    background: #1E1E1E;
+
+/* Responsive Design for Tablets */
+@media (max-width: 900px) and (min-width: 601px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .sidebar {
+        width: 100%;
+        max-width: 250px;
+        padding: 20px;
+    }
+    .main-content {
+        width: 100%;
+        padding: 30px;
+    }
+}
+
+/* Responsive Design for Larger Screens (Laptops and Desktops) */
+@media (min-width: 901px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 40px;
+    }
+    .sidebar {
+        width: 250px;
+        padding: 20px;
+    }
+    .main-content {
+        width: 70%;
+        padding: 40px;
+    }
 }
